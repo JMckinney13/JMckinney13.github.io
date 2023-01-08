@@ -1,1 +1,5 @@
-
+title: Justin McKinney - GitHub Pages
+description: This site will be used to house my future projects
+show_downloads: true
+google_analytics:
+theme: jekyll-theme-architect
