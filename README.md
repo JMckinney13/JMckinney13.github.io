@@ -1,6 +1,6 @@
 # **Original Code:**
 
-``` Java
+```Java
 public class Contact {
 	
 	String ID;
