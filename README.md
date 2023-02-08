@@ -1,5 +1,6 @@
     
-    
+This page will be used to display my work for the final project in my Computer Science Capstone class at Southern New Hampshire University. 
+
     
 # **Original Code:**
 
