@@ -1,6 +1,6 @@
 # **Original Code:**
 
-''' 
+``` 
 import tkinter as tk
 import tkinter.ttk as ttk
 from tkinter import Menu
@@ -45,7 +45,7 @@ label_number = tk.Label(root, text="Number:", bg='snow3')
 label_number.grid(row=3, column=0, padx=5, pady=5)
 entry_number = tk.Entry(root, bg='white', border=3)
 entry_number.grid(row=3, column=1, padx=5, pady=5)
-'''
+```
 
 # **Enhancement One Code:**
 
