@@ -1,6 +1,6 @@
 # **Original Code:**
 
-```Java
+```python
 public class Contact {
 	
 	String ID;
