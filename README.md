@@ -1,6 +1,6 @@
 # **Original Code:**
 
-```python
+```Python
 import tkinter as tk
 import tkinter.ttk as ttk
 from tkinter import Menu
