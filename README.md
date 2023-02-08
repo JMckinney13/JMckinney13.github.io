@@ -1,50 +1,127 @@
 # **Original Code:**
 
-```Python
-import tkinter as tk
-import tkinter.ttk as ttk
-from tkinter import Menu
-from pymongo import MongoClient
-from datetime import date
+```Java
+public class Contact {
+	
+	String ID;
+	String firstName;
+	String lastName;
+	String  number;
+	String address;
+	
+	//Default Constructor for Contact object
+	public Contact() {
+		
+	}
+	
+	//Constructor with arguments for Contact object
+	public Contact(String ID, String firstName, String lastName, String number, String address) {
+		
+		this.ID = setID(ID);
+		this.firstName = setFirstName(firstName);
+		this.lastName = setLastName(lastName);
+		this.number = setNumber(number);
+		this.address = setAddress(address);
+	
+}
+	
+	// Setters and Getters for each Variable
+	//Added if blocks to the setters to ensure variables aren't null and aren't too long
 
-# This is a fully functioning contact/appointment manager with MongoDB connections
-# To use this app you will need to have MongoDB set up and a server currently running for connections
-# Once you have a server running you will need to check which port it is running on and use that port number in the connection string below
-# example: client = MongoClient("mongodb://localhost:YOURPORTNUMBER/")
-# You will also need to either setup a DB named Contacts and a collection named NewContacts or change db and collection variables below to match your own database and collection
-# Once everything is setup you can simply run the ContactManager.py file in your command line and your good to go
 
-# Once the application is running you can click the help menu button on the upper left for usage directions
-# The contact manager and appointment manager have their own help directions and help menu button
+	public String setID(String ID) {
+		
+		if (ID == null) {
+			throw new IllegalArgumentException("ID can't be null");
+		}
+		
+		if (ID.length() > 10) {
+			throw new IllegalArgumentException("ID must be 10 characters or less");
+		}
+		
+		this.ID = ID;
+		return ID;
+		
+	}
+	
+	public String getID() {
+		return ID;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public String setFirstName(String firstName) {
+		
+		if (firstName == null) {
+			throw new IllegalArgumentException("First name can't be null");
+		}
+		
+		if (firstName.length() > 10) {
+			throw new IllegalArgumentException("First name must be 10 characters or less");
+		}
+		
+		this.firstName = firstName;
+		return firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public String setLastName(String lastName) {
+		
+		if (lastName == null) {
+			throw new IllegalArgumentException("Last name can't be null");
+		}
+		
+		if (lastName.length() > 10) {
+			throw new IllegalArgumentException("Last name must be 10 characters or less");
+		}
+		
+		this.lastName = lastName;
+		return lastName;
+	}
+	
+	public String getNumber() {
+		return number;
+	}
+	
+	public String setNumber(String number) {
+		
+		if (number == null) {
+			throw new IllegalArgumentException("Phone number can't be null");
+		}
+		
+		if (number.length() != 10) {
+			throw new IllegalArgumentException("Phone number must be exactly 10 characters");
+		}
+		
+		this.number = number;
+		return number;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	public String setAddress(String address) {
+		
+		if (address == null) {
+			throw new IllegalArgumentException("Address can't be null");
+		}
+		
+		if (address.length() > 30) {
+			throw new IllegalArgumentException("Address must be 30 characters or less");
+		}
+		
+		this.address = address;
+		return address;
+	}
+	
 
-root = tk.Tk()
-root.title("Contact Manager")
-root.configure(bg='snow3') # set bg color to gray
-
-
-# Label and Entry box for ID 
-label_id = tk.Label(root, text="ID:", bg='snow3')
-label_id.grid(row=0, column=0, padx=5, pady=5)
-entry_id = tk.Entry(root, bg='white', width=10, border=3)
-entry_id.grid(row=0, column=1, padx=5, pady=5)
-
-# Label and Entry box for First Name
-label_first_name = tk.Label(root, text="First Name:", bg='snow3')
-label_first_name.grid(row=1, column=0, padx=5, pady=5)
-entry_first_name = tk.Entry(root, bg='white', border=3)
-entry_first_name.grid(row=1, column=1, padx=5, pady=5)
-
-# Label and Entry box for Last Name
-label_last_name = tk.Label(root, text="Last Name:", bg='snow3')
-label_last_name.grid(row=2, column=0, padx=5, pady=5)
-entry_last_name = tk.Entry(root, bg='white', border=3)
-entry_last_name.grid(row=2, column=1, padx=5, pady=5)
-
-# Label and Entry box for Number
-label_number = tk.Label(root, text="Number:", bg='snow3')
-label_number.grid(row=3, column=0, padx=5, pady=5)
-entry_number = tk.Entry(root, bg='white', border=3)
-entry_number.grid(row=3, column=1, padx=5, pady=5)
+}
 ```
 
 # **Enhancement One Code:**
