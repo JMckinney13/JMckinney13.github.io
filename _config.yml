@@ -2,7 +2,7 @@ title: Justin McKinney - GitHub Pages
 description: This site will be used to house my CS Capstone artifacts.
 show_downloads: true
 google_analytics:
-theme: jekyll-theme-architect
+theme: jekyll-theme-cayman
 
 plugins:
 - jekyll-remote-theme
