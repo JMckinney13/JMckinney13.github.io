@@ -13,9 +13,10 @@ The original code base can be seen [HERE](https://github.com/JMckinney13/JMckinn
 
 [Enhancement One: Ported from Java to Python](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ArtifactOne.py)
 
-Link should work
 
 # **Enhancement Two Code:**
+
+[Enhancement Two: Added GUI Functionality](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ArtifactTwo.py)
 
 
 # **Enhancement Three Code:**
