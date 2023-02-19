@@ -1,4 +1,5 @@
-    
+The following represents my final project for the Computer Science Capstone class at Southern New Hampshire University.
+
 # **Self Assessment:** 
 
   When I first started my Computer Science degree at Southern New Hampshire University I knew only the very basicss of coding. I had previously written very simple code I had learned from tutorials and had taken a few courses at freecodecamp, but for the most part I was a begineer when it came to writing and managing code. It was a bit challenging at first as I was learning each new concept but as time went on and I became more and more confident each class became a little less frustrating and a great deal more fun. I quickly realized that I had made the right choice in selecting computer science as my major. 
