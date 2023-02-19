@@ -48,7 +48,32 @@ The first enhancement was accomplished to showcase my abilities in software desi
         self.firstname = firstname 
 ```
 
-I also added a more verbose set of test cases for the code to ensure each edge case was tested and that the test cases provided a more thorough coverage of the code base. Adding in the test cases was the most challenging part for me, I have a decent amount of experience with test cases but the challenge was thinking of which areas needed to be tested and how I would test them. I really enjoyed getting the opurtunity to improve on code I had previously written and learned some new things along the way. One thing I learned was how to use and implement dunder methods, I had never really had the oppurtunity to use them in the past but decided to use one here to format up the default print() function to better display the contact data. 
+I also added a more verbose set of test cases for the code to ensure each edge case was tested and that the test cases provided a more thorough coverage of the code base. Adding in the test cases was the most challenging part for me, I have a decent amount of experience with test cases but the challenge was thinking of which areas needed to be tested and how I would test them. Below is an example of some of the test cases I designed:
+```Python
+ # Test the creation of a Contact using the constructor
+    def test_creation(self):
+        Justin = Artifact.Contact("921", "Justin", "Mckinney", "0008675309", "Far Far Away")
+        self.assertEqual("921", Justin.get_ID())
+        self.assertEqual("Justin", Justin.get_firstname())
+        self.assertEqual("Mckinney", Justin.get_lastname())
+        self.assertEqual("0008675309", Justin.get_number())
+        self.assertEqual("Far Far Away", Justin.get_address())
+
+    # The Following test cases each test the validation of input for each variable
+
+    # First Name Validation
+    def test_first_name_validation(self):
+        Justin = Artifact.Contact("921", "Justin", "Mckinney", "0008675309", "Far Far Away")
+        self.assertRaises(ValueError, lambda: Justin.set_firstname("ThisFirstNameIsTooLong"))
+        self.assertRaises(ValueError, lambda: Justin.set_firstname(""))
+    
+    # ID Validation
+    def test_id_validation(self):
+        Justin = Artifact.Contact("921", "Justin", "Mckinney", "0008675309", "Far Far Away")
+        self.assertRaises(ValueError, lambda: Justin.set_ID("ThisIDIsTooLong"))
+        self.assertRaises(ValueError, lambda: Justin.set_ID(""))  
+```
+I really enjoyed getting the opurtunity to improve on code I had previously written and learned some new things along the way. One thing I learned was how to use and implement dunder methods, I had never really had the oppurtunity to use them in the past but decided to use one here to format up the default print() function to better display the contact data. The main feedback I recieved on this artifact was to try and highlight how the artifact addressed each of the course outcomes, I have tried to encorporate that feedback and better illustrate each course outcome. 
 
 The code for enhancement one can be found below:
 [Enhancement One: Ported from Java to Python](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ArtifactOne.py)
@@ -56,6 +81,49 @@ The code for enhancement one can be found below:
 [Enhancement One: Test Cases](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ArtifactTest.py)
 
 # **Enhancement Two Code:**
+The second enhancement was accomplished to showcase my skills in algorithms and data structures. I used the same code base for this enhancement as I did in enhancement one. I truly believe this artifact does a great job of showcasing my abilities in algorithms and data structures because I increased the overall complexity of the code and added in a complete graphical user interface. The GUI that I added allows the user to create contacts in a very easy to use way and I even added in effects such as buttons changing when hovered over just to give it a more polished appearance. The GUI addition meets the 3rd course outcome because I programmed solutions to solve logic problems and implemented them in software. An example of this is when I had to figure out a way to incorporate the edit function into the GUI and you can see below how I was able to do it:
+```Python
+def edit_input():
+    if id_validation(): # first checks for valid id input
+        edit_id = entry_id.get()
+        new_first_name = entry_first_name.get()
+        new_last_name = entry_last_name.get()
+        new_number = entry_number.get()
+        new_address = entry_address.get()
+
+        # TO-DO: MILESTONE 3: Add in pymongo command to search for contact to be used in editing
+
+        update_data = {}
+        if new_first_name:
+            # if validation passes update firstname
+            if first_name_validation(): # verifies first_name input
+                update_data["FirstName"] = new_first_name
+            else:
+                entry_first_name.delete(0,tk.END)
+                entry_first_name.insert(tk.END, "Must be 10 characters or less.") # indicate to users that validation failed
+        if new_last_name:
+            # if validation passes update lastname
+            if last_name_validation(): # verifies last_name input
+                update_data["LastName"] = new_last_name
+            else:
+                entry_last_name.delete(0,tk.END)
+                entry_last_name.insert(tk.END, "Must be 15 Characters or less.") # indicate that validation failed
+        if new_number:
+            # if validation passes update number
+            if number_validation(): # verifies number input
+                update_data["Number"] = new_number
+            else:
+                entry_number.delete(0, tk.END)
+                entry_number.insert(tk.END, "Must be exactly 10 characters")
+        if new_address:
+            # if validation passes update address
+            if address_validation(): # verifies address input
+                update_data["Address"] = new_address
+            else:
+                entry_address.delete(0, tk.END)
+                entry_address.insert(tk.END, "Must be 30 characters or less.")
+```
+This artifact also meets the 1st course outcome due to the fact I used very descriptive comments throughout the code. This effective use of comments clearly demonstrates my ability to work in a collaborative environment because anyone could come behind me and pickup working on this project with ease. The result of this enhancement is that I now have a fully functioning application that allows users to create and edit contacts using a GUI. The addition of the GUI proved to be very difficult as I have little experience with Tkinter, however, incorporating input validation alongside this GUI was a real challenge for me and I really enjoyed the experience. I had to design the input validation in a way that would not only check the input but also provide feedback to the user. I did this by making use of some if/else statements to check input and the .insert Tkinter command to display feedback. I learned a great deal while coding this artifact, as I mentioned earlier I am new to Tkinter so the whole process was a great learning experience and I now feel very comfortable having it in my tool belt. The code for this artifact can be found below:
 
 [Enhancement Two: Added GUI Functionality](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ArtifactTwo.py)
 
