@@ -76,10 +76,8 @@ I also added a more verbose set of test cases for the code to ensure each edge c
 ```
 I really enjoyed getting the opurtunity to improve on code I had previously written and learned some new things along the way. One thing I learned was how to use and implement dunder methods, I had never really had the oppurtunity to use them in the past but decided to use one here to format up the default print() function to better display the contact data. The main feedback I recieved on this artifact was to try and highlight how the artifact addressed each of the course outcomes, I have tried to encorporate that feedback and better illustrate each course outcome. 
 
-The code for enhancement one can be found below:
-[Enhancement One: Ported from Java to Python](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ArtifactOne.py)
-
-[Enhancement One: Test Cases](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ArtifactTest.py)
+The code for enhancement one can be found at the following links
+[Enhancement One: Ported from Java to Python](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ArtifactOne.py) and [Enhancement One: Test Cases](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ArtifactTest.py)
 
 # **Enhancement Two Code:**
 The second enhancement was accomplished to showcase my skills in algorithms and data structures. I used the same code base for this enhancement as I did in enhancement one. I truly believe this artifact does a great job of showcasing my abilities in algorithms and data structures because I increased the overall complexity of the code and added in a complete graphical user interface. The GUI that I added allows the user to create contacts in a very easy to use way and I even added in effects such as buttons changing when hovered over just to give it a more polished appearance. The GUI addition meets the 3rd course outcome because I programmed solutions to solve logic problems and implemented them in software. An example of this is when I had to figure out a way to incorporate the edit function into the GUI and you can see below how I was able to do it:
@@ -158,9 +156,7 @@ def on_leave_directions(event):
     directions_button.config(bg='Slategray1') # gray after hover
 ```
 
-The code for this artifact can be found below:
-
-[Enhancement Two: Added GUI Functionality](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ArtifactTwo.py)
+The code for this artifact can be found at this link [Enhancement Two: Added GUI Functionality](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ArtifactTwo.py)
 
 
 # **Enhancement Three Code:**
@@ -278,5 +274,4 @@ def input_validation():
 ```
 I really enjoyed coding this artifact mainly because the orginal code base was written early in my computer science career so I had alot of fun really demonstrating how far I have came since the beginning. It was a wonderful experience getting to take something that was useless on its own to a fully functioning application, this was the first time I have ever had the oppurtunity to do something like this on my own. I learned so many things throughout the course of this final enhancement. I learned how to incorporate a database into a python code base through the use of the Pymongo libray. I also learned how to retrieve info from a database and edit it all while maintaning proper input validation. I even learned how to create drop down menu items, in this artifact I utilyzed a drop down menu to add in the help menu. I think one of the hardest parts for me was figuring out how to take the data from the GUI, pass it through validation and then save it into the database. It took me a while to really figure out the logic behind that process but I was able to do it by utilyzing online resources and going back over past course materials from previous classes here at SNHU. I also found it challenging just figuring out the layout of each window, however, this part was also really enjoyable. I enjoyed it because it gave me the power to edit the window how I saw fit. It was really great seeing the whole thing come together as one working application in the end, it gave me a great sense of accomplishment and I look forward to doing things like this as a career. 
 
-The code for the final enhancement can be found below:
-[Enhancement Three: Added Database Functionality](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ContactManager.py)
+The code for the final enhancement can be found here: [Enhancement Three: Added Database Functionality](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ContactManager.py)
