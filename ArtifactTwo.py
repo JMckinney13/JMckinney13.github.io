@@ -2,23 +2,18 @@ import tkinter as tk
 
 
 
-#The orignal code that I used for this enhancement was code I wrote for the Software Testing and Automation class at SNHU. It was designed
-#to enable the creation of contacts and allowed each contact to be added to an array, deleted, or edited. I chose this artifact for dispaying
-#my skills in Algorithms and Data Structures because I really thought I could add some complexity to it and make it much more user friendly.
-#This is my first attempt at creating a graphical user interface using Tkinter and probably only my second time dealing with any GUI. This 
-#application was created to provide the user with a way to create and store contacts in an easy to use way. I will be using this code base
-#for my Milestone 3 artifact as well and will be adding in all the required database connections and commands to make this a fully functioning
-#application. Currently none of the buttons really do anything aside from the direction button, I just have the base code laid out for them and the methods that go with them
-#I will just have to add in the DB commands to make it complete which I will do in the next Milestone. 
+# This code represents enhancement two which falls under tha category of algorithms and data structures. I chose to increase the overall
+# complexity of the original code base and to incorporate a graphical user interface using tkinter to display my skills in algorithms
+# and data structures. 
 
 root = tk.Tk()
 root.title("Contact Manager")
 root.configure(bg='snow3') # set bg color to gray
 
 
-#Lines 10 through 44 are used to create and position each label and text input box
-#I chose very mild background and foreground colors for now, this may change for my final submission
-#The labes and text input boxes are all positioned using columns and rows
+# Lines 10 through 44 are used to create and position each label and text input box
+# I chose very mild background and foreground colors to keep the GUI simple
+# The labels and text input boxes are all positioned using columns and rows
 label_id = tk.Label(root, text="ID:", bg='snow3')
 label_id.grid(row=0, column=0, padx=5, pady=5)
 
@@ -65,44 +60,59 @@ def input_validation():
     number = entry_number.get()
     address = entry_address.get()
 
-    # Checks for proper input and returns False if incorrect input is entered or True if all input validations pass
-    # Anytime input validation fails users will be notified in the results text box
+    # Checks for proper input and returns False if incorrect or True if all input validation passes
+    # anytime input validation fails users will be notified in the results text box
+    
+    # returns false if ID is empty
     if not id:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "ID field can't be empty.")
         return False
+    # returns false if ID is greater than 10 characters
     elif len(id) > 10:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "ID must be 10 characters or less.")
         return False
+    
+    # returns false if first_name is empty
     elif not first_name:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "First Name can't be empty.")
         return False
+    # returns false if first_name greater than 10 characters
     elif len(first_name) > 10:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "First Name must be 10 characters or less.")
         return False
+    
+    # returns false if last_name is empty
     elif not last_name:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "Last Name field can't be empty.")
         return False
+    # returns false if last_name is greater than 15 characters
     elif len(last_name) > 15:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "Last Name must be 15 characters or less.")
         return False
+    
+    # returns false if number is empty
     elif not number:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "Number field can't be empty.")
         return False
+    # returns false if number is not exactly 10 characters
     elif len(number) != 10:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "Number must be exactly 10 characters.")
         return False
+    
+    # returns false if address is empty
     elif not address:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "Address field can't be empty.")
         return False
+    # returns false if address is greater than 30 characters
     elif len(address) > 30:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "Address must be 30 characters or less.")
@@ -111,11 +121,11 @@ def input_validation():
         return True
 
 # The following 5 methods are idividual input validation checks for each field, these were created to be used with the edit_input method
-# Since you will be editing single or multiple fields I thought it would be better to have seperated input validation checks
+# These individual validation functions will be utilized in the edit_input function
 def id_validation():
     id = entry_id.get()
     
-    # Validates input and sends results to the results text box
+    # validates id input and sends any errors to the results box
     if not id:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "ID field can't be empty.")
@@ -130,7 +140,7 @@ def id_validation():
 def first_name_validation():
     first_name = entry_first_name.get()
 
-    #Validates input and displays results in the results text box
+    # validates first_name input and sends any errors to the results box
     if not first_name: 
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "First Name field can't be empty.")
@@ -145,7 +155,7 @@ def first_name_validation():
 def last_name_validation():
     last_name = entry_last_name.get()
 
-    #Validates input and displays results in the results text box
+    # validates last_name input and sends any errors to the results box
     if not last_name:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "Last Name field can't be empty.")
@@ -160,7 +170,7 @@ def last_name_validation():
 def number_validation():
     number = entry_number.get()
 
-    #Validates input and displays results in the results text box
+    # validates number input and sends any errors to the results box
     if not number:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "Number field can't be empty.")
@@ -175,7 +185,7 @@ def number_validation():
 def address_validation():
     address = entry_address.get()
 
-    #Validates input and displays results in the results text box
+    # validates address input and sends any errors to the results box
     if not address:
         results_text.delete(1.0, tk.END)
         results_text.insert(tk.END, "Address field can't be empty.")
@@ -191,7 +201,7 @@ def address_validation():
 # Verifies valid input first then Grabs information from each field and stores it as a dictionary named contact
 # I will be adding in the proper database functionality on the next Milestone
 def save_input():
-    if input_validation():
+    if input_validation(): # Checks input
         contact = {
             "_id": entry_id.get(),
             "FirstName": entry_first_name.get(),
@@ -202,29 +212,29 @@ def save_input():
         # TO-DO: MILESTONE 3: Add in command to save contact to MongoDB
         # I designed this portion to delete each field after successful save to prepare for the next contact
         results_text.delete(1.0, tk.END)
-        results_text.insert(tk.END, "Contact saved to the database.")
+        results_text.insert(tk.END, "Contact saved to the database.") # Notifies user of successful save
         entry_id.delete(0,tk.END)
         entry_first_name.delete(0,tk.END)
         entry_last_name.delete(0,tk.END)
         entry_number.delete(0,tk.END)
         entry_address.delete(0,tk.END)
 
-# Empty method for now, I will be later adding the ability to search MongoDB for a contact using the ID field
+# empty method for now, I will be later adding the ability to search MongoDB for a contact using the ID field
 def search_input():
     if id_validation():
         # TO-DO: MILESTONE 3: Add in command to search database for contact matching search_id
         pass
         
-# Empty method, will later add abiliity to locate and delete contact from DB
+# empty method, will later add abiliity to locate and delete contact from DB
 def delete_input():
     if id_validation():
         # TO-DO: MILESTONE 3: Add in command to delete contact from MongoDB
         # TO-DO: MILESTONE 3: IF/else loop to to display if contact was deleted or not
         pass
 
-# This method currently grabs the data from each field and validates those inputs, I will later add the ability to edit each field on the database
+# this method currently grabs the data from each field and validates those inputs, I will later add the ability to edit each field on the database
 def edit_input():
-    if id_validation():
+    if id_validation(): # first checks for valid id input
         edit_id = entry_id.get()
         new_first_name = entry_first_name.get()
         new_last_name = entry_last_name.get()
@@ -235,33 +245,37 @@ def edit_input():
 
         update_data = {}
         if new_first_name:
-            if first_name_validation():
+            # if validation passes update firstname
+            if first_name_validation(): # verifies first_name input
                 update_data["FirstName"] = new_first_name
             else:
                 entry_first_name.delete(0,tk.END)
-                entry_first_name.insert(tk.END, "Must be 10 characters or less.")
+                entry_first_name.insert(tk.END, "Must be 10 characters or less.") # indicate to users that validation failed
         if new_last_name:
-            if last_name_validation():
+            # if validation passes update lastname
+            if last_name_validation(): # verifies last_name input
                 update_data["LastName"] = new_last_name
             else:
                 entry_last_name.delete(0,tk.END)
-                entry_last_name.insert(tk.END, "Must be 15 Characters or less.")
+                entry_last_name.insert(tk.END, "Must be 15 Characters or less.") # indicate that validation failed
         if new_number:
-            if number_validation():
+            # if validation passes update number
+            if number_validation(): # verifies number input
                 update_data["Number"] = new_number
             else:
                 entry_number.delete(0, tk.END)
                 entry_number.insert(tk.END, "Must be exactly 10 characters")
         if new_address:
-            if address_validation():
+            # if validation passes update address
+            if address_validation(): # verifies address input
                 update_data["Address"] = new_address
             else:
                 entry_address.delete(0, tk.END)
                 entry_address.insert(tk.END, "Must be 30 characters or less.")
 
-       # TO-DO: MILESTONE 3: add in IF/ELSE statements to update contact on database and also print results of either 'contact updated', 'contact not found', 'nothind to update'.   
+       # TO-DO: MILESTONE 3: add in IF/ELSE statements to update contact on database and also print results   
 
-# This method opens a new window to display the directions for using the application
+# his method opens a new window to display the directions for using the application
 def open_directions():
     root2 = tk.Tk()
     root2.title("Application Directions - DataBase Functionality Coming Soon")
@@ -283,60 +297,66 @@ def open_directions():
     label5_info = tk.Label(root2, text="   Once you click edit any fields that you fill in will be updated on the database.", bg='snow3')
     label5_info.grid(row=4, column=2, padx=5, pady=5)
 
-# The following group of methods were designed to add quality to the buttons appearance, they cause color changes when buttons are hovered over and pressed
+# he following group of methods were designed to add quality to the buttons appearance, they cause color changes when buttons are hovered over and pressed
 def on_hover_save(event):
-    save_button.config(bg='DarkSeaGreen1')
+    save_button.config(bg='DarkSeaGreen1') # green on hover
 
 def on_leave_save(event):
-    save_button.config(bg='Slategray1')
+    save_button.config(bg='Slategray1') # gray after hover
 
 def on_hover_delete(event):
-    delete_button.config(bg='tomato2')
+    delete_button.config(bg='tomato2') # red on hover
 
 def on_leave_delete(event):
-    delete_button.config(bg='Slategray1')
+    delete_button.config(bg='Slategray1') # gray after hover
 
 def on_hover_search(event):
-    search_button.config(bg='Slategray3')
+    search_button.config(bg='Slategray3') # dark gray on hover
 
 def on_leave_search(event):
-    search_button.config(bg='Slategray1')
+    search_button.config(bg='Slategray1') # gray after hover
 
 def on_hover_edit(event):
-    edit_button.config(bg='Slategray3')
+    edit_button.config(bg='Slategray3') # dark gray on hover
 
 def on_leave_edit(event):
-    edit_button.config(bg='Slategray1')
+    edit_button.config(bg='Slategray1') # gray after hover
 
 def on_hover_directions(event):
-    directions_button.config(bg='Slategray3')
+    directions_button.config(bg='Slategray3') # dark gray on hover
 
 def on_leave_directions(event):
-    directions_button.config(bg='Slategray1')
+    directions_button.config(bg='Slategray1') # gray after hover
 
-# Lines 297 through 320 deal with creating and customizing the buttons used in the application
-# I tried to make them as appealing as I knew how to, I will probably tweak this more before its finished
-# Each button makes a call to one of the methods created above once it is clicked
+# lines 297 through 320 deal with creating and customizing the buttons used in the application
+# each button makes a call to one of the methods created above once it is clicked
+# button layout is determined by row and column positions
+
+# save button
 save_button = tk.Button(root, activebackground='DarkSeaGreen4', bg='Slategray1', border=6, text="Save", command=save_input)
 save_button.grid(row=6, column=0, padx=5, pady=5)
 save_button.bind('<Enter>', on_hover_save)
 save_button.bind('<Leave>', on_leave_save)
 
+# search button
 search_button = tk.Button(root, activebackground='Slategray4', bg='Slategray1', border=6, text="Search", command=search_input)
 search_button.grid(row=6, column=1, padx=5, pady=5)
 search_button.bind('<Enter>', on_hover_search)
 search_button.bind('<Leave>', on_leave_search)
 
+# delete button
 delete_button = tk.Button(root, activebackground='tomato4', bg='Slategray1', border=6,  text="Delete", command=delete_input)
 delete_button.grid(row=6, column=3, padx=5, pady=5)
 delete_button.bind('<Enter>', on_hover_delete)
 delete_button.bind('<Leave>', on_leave_delete)
 
+# edit button
 edit_button = tk.Button(root, activebackground='Slategray4', bg='Slategray1', border=6, text="Edit", command=edit_input)
 edit_button.grid(row=6, column=2, padx=5, pady=5)
 edit_button.bind('<Enter>', on_hover_edit)
 edit_button.bind('<Leave>', on_leave_edit)
 
+# directions button
 directions_button = tk.Button(root, activebackground='Slategray4', bg='Slategray1', border=6,  text="Directions", command=open_directions)
 directions_button.grid(row=7, column=1, padx=5, pady=5)
 directions_button.bind('<Enter>', on_hover_directions)
