@@ -33,7 +33,7 @@ The test cases for the code can be found at the following links: [Contact Servic
 
 
 # **Enhancement One Code:**
-The first enhancement was accomplished to showcase my abilities in software design and engineering. I decided to showcase these abilities by porting the original code from Java to Python, and along the way I added a few enhancements to make the code more secure. I believe this artifact does an excellent job of showcasing my skills in software development because it highlights my ability to not only port from another language but to also increase security in the process. The first hurdle of this enhancemnt was the port, I consider myself very skilled in Python so this part was pretty easy and I had alot of fun doing it. Once the port was completed I started to improve on the code to provide a much more refined product in comparison to the original. I noticed during my code review that the original lacked input validation so I worked towards correcting that problem. I addressed input validation through the use of if statements in the setters for each variable. The addition of input validation meets course outcome 5 because I found and eradicated a security vulnerability as well as ensured all data was explicitly validated. Below is a snippet demonstrating this validation:
+The first enhancement was accomplished to showcase my abilities in software design and engineering. I decided to showcase these abilities by porting the original code from Java to Python, and along the way I added a few enhancements to make the code more secure. I believe this artifact does an excellent job of showcasing my skills in software development because it highlights my ability to not only port from another language but to also increase security in the process. The first hurdle of this enhancemnt was the port, I consider myself very skilled in Python so this part was pretty easy and I had alot of fun doing it. Once the port was completed I started to improve on the code to provide a much more refined product in comparison to the original. I noticed during my code review that the original lacked input validation so I worked towards correcting that problem. I addressed input validation through the use of if statements in the setters for each variable. The addition of input validation meets the 5th course outcome because I found and eradicated a security vulnerability as well as ensured all data was explicitly validated. Below is a snippet demonstrating this validation:
 ```Python
   
     def set_firstname(self, firstname):
@@ -123,11 +123,159 @@ def edit_input():
                 entry_address.delete(0, tk.END)
                 entry_address.insert(tk.END, "Must be 30 characters or less.")
 ```
-This artifact also meets the 1st course outcome due to the fact I used very descriptive comments throughout the code. This effective use of comments clearly demonstrates my ability to work in a collaborative environment because anyone could come behind me and pickup working on this project with ease. The result of this enhancement is that I now have a fully functioning application that allows users to create and edit contacts using a GUI. The addition of the GUI proved to be very difficult as I have little experience with Tkinter, however, incorporating input validation alongside this GUI was a real challenge for me and I really enjoyed the experience. I had to design the input validation in a way that would not only check the input but also provide feedback to the user. I did this by making use of some if/else statements to check input and the .insert Tkinter command to display feedback. I learned a great deal while coding this artifact, as I mentioned earlier I am new to Tkinter so the whole process was a great learning experience and I now feel very comfortable having it in my tool belt. The code for this artifact can be found below:
+This artifact also meets the 1st course outcome due to the fact I used very descriptive comments throughout the code. This effective use of comments clearly demonstrates my ability to work in a collaborative environment because anyone could come behind me and pickup working on this project with ease. The result of this enhancement is that I now have a fully functioning application that allows users to create and edit contacts using a GUI. The addition of the GUI proved to be very difficult as I have little experience with Tkinter, however, incorporating input validation alongside this GUI was a real challenge for me and I really enjoyed the experience. I had to design the input validation in a way that would not only check the input but also provide feedback to the user. I did this by making use of some if/else statements to check input and the .insert Tkinter command to display feedback. I learned a great deal while coding this artifact, as I mentioned earlier I am new to Tkinter so the whole process was a great learning experience and I now feel very comfortable having it in my tool belt. I also learned a great deal about how to improve the appearance of Tkinter windows by implementing color changes when buttons are hovered over. You can see an example of this below:
+
+```Python
+def on_hover_save(event):
+    save_button.config(bg='DarkSeaGreen1') # green on hover
+
+def on_leave_save(event):
+    save_button.config(bg='Slategray1') # gray after hover
+
+def on_hover_delete(event):
+    delete_button.config(bg='tomato2') # red on hover
+
+def on_leave_delete(event):
+    delete_button.config(bg='Slategray1') # gray after hover
+
+def on_hover_search(event):
+    search_button.config(bg='Slategray3') # dark gray on hover
+
+def on_leave_search(event):
+    search_button.config(bg='Slategray1') # gray after hover
+
+def on_hover_edit(event):
+    edit_button.config(bg='Slategray3') # dark gray on hover
+
+def on_leave_edit(event):
+    edit_button.config(bg='Slategray1') # gray after hover
+
+def on_hover_directions(event):
+    directions_button.config(bg='Slategray3') # dark gray on hover
+
+def on_leave_directions(event):
+    directions_button.config(bg='Slategray1') # gray after hover
+```
+
+The code for this artifact can be found below:
 
 [Enhancement Two: Added GUI Functionality](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ArtifactTwo.py)
 
 
 # **Enhancement Three Code:**
+The code base that I chose for this artifact is the same one that I used in Milestone one and two. It is code that I designed in the Software Testing and Automation class here at SNHU. The code was written to allow the creation of contacts and provided the user with the options to add, delete, edit, or search for contacts stored on an array. The original code was meant to be a portion of a larger project, alone it really didn’t accomplish much. I wanted to change that by making it a fully functional application. I chose this code because I designed it from scratch earlier in my programming journey, and I really wanted to see how much I could add to it now that I have advanced farther in my degree. This artifact does a good job of showing my skills in writing code that is error free and free of any logic errors. It also showcases my ability to create and implement code that addresses a need in a very secure way. The artifact was enhanced in many ways, the first enhancement was porting it from Java to Python. The second enhancement was designing and implementing a graphical user interface that was easy to use, efficient, and secure. The final enhancement was to implement the usage of MongoDB to create a permanent form of storage for the contacts. I also added a new section for creating appointments. The appointment manager section has its own window and acts very similar to the contact manager portion. 
 
+This artifact meets the following course outcomes:
+
+The 1st course outcome because I provided contextual, in-code comments that resulted in easily readable and understandable code. You can clearly see this throughout my entire code as I utilized comments to ensure someone could easily come behind me and know what was happening at each step of the process. You can see an example of this in the following snippet:
+```Python
+# Searches MongoDB for contact and then displays it in the results text box
+def search_input():
+    if id_validation():  # Verifies ID field input using id_validation function
+        search_id = entry_id.get()
+        search_result = collection.find_one({"_id": search_id}) # Uses entered ID as a MongoDB search command to return the contact matching the ID
+        if search_result:
+            results_text.delete(1.0, tk.END)
+            # Formats and displays the contact if a match is found
+            results_text.insert(tk.END, f"ID: {search_result['_id']}\nFirst Name: {search_result['FirstName']}\nLast Name: {search_result['LastName']}\nNumber: {search_result['Number']}\nAddress: {search_result['Address']}")
+        # Else block is ran if no contact is found matching the search ID
+        else:
+            results_text.delete(1.0, tk.END)
+            results_text.insert(tk.END, "No contact found with that ID.")
+
+# Deletes contact from MongoDB if contact is found that matches the search ID
+def delete_input():
+    if id_validation():  # Verifies ID input by using the id_validation function
+        delete_id = entry_id.get()
+        delete_result = collection.delete_one({"_id": delete_id})  # Uses delete_id in pymongo command to find and delete contact from DB
+
+        # If contact is found display "contact removed from database" else if not found display "Contact not found"
+        if delete_result.deleted_count > 0:
+            results_text.delete(1.0, tk.END)
+            results_text.insert(tk.END, "Contact removed from database.")
+        else:
+            results_text.delete(1.0, tk.END)
+            results_text.insert(tk.END, "Contact not found.")
+
+```
+This code also meets the 4th course outcome because it demonstrates my ability to create industry-standard software designs and I created more robust and efficient code that delivers value. You can see an example below of my code being efficient, instead of handling input validation inside of each function I created a seperate function for validation and called that function when it was needed. Input validation being called by search_input() function:
+```Python
+def search_input():
+    if id_validation():  # Verifies ID field input using id_validation function
+        search_id = entry_id.get()
+        search_result = collection.find_one({"_id": search_id}) # Uses entered ID as a MongoDB search command to return the contact matching the ID
+        if search_result:
+            results_text.delete(1.0, tk.END)
+            # Formats and displays the contact if a match is found
+            results_text.insert(tk.END, f"ID: {search_result['_id']}\nFirst Name: {search_result['FirstName']}\nLast Name: {search_result['LastName']}\nNumber: {search_result['Number']}\nAddress: {search_result['Address']}")
+        # Else block is ran if no contact is found matching the search ID
+        else:
+            results_text.delete(1.0, tk.END)
+            results_text.insert(tk.END, "No contact found with that ID.")
+```
+The final course outcome that this code meets is outcome 5. It meets this outcome because when designing this code I found and eradicated any security vulnerabilities or flaws, and also because I ensured all data was explicitly validated. You can see an example of my input validation logic below:
+```Python
+def input_validation():
+    # Grabs the input from each of the fields
+    id = entry_id.get()
+    first_name = entry_first_name.get()
+    last_name = entry_last_name.get()
+    number = entry_number.get()
+    address = entry_address.get()
+
+    # If/elif to check for empty ID or ID's that are longer than 10 characters
+    if not id:
+        results_text.delete(1.0, tk.END)
+        results_text.insert(tk.END, "ID field can't be empty.")
+        return False
+    elif len(id) > 10:
+        results_text.delete(1.0, tk.END)
+        results_text.insert(tk.END, "ID must be 10 characters or less.")
+        return False
+    
+    # Elif statements to check for empty first name or first name's that are longer than 10 characters       
+    elif not first_name:
+        results_text.delete(1.0, tk.END)
+        results_text.insert(tk.END, "First Name can't be empty.")
+        return False
+    elif len(first_name) > 10:
+        results_text.delete(1.0, tk.END)
+        results_text.insert(tk.END, "First Name must be 10 characters or less.")
+        return False
+    
+    # Elif statements to check for empty last name or last name's that are longer than 15 characters
+    elif not last_name:
+        results_text.delete(1.0, tk.END)
+        results_text.insert(tk.END, "Last Name field can't be empty.")
+        return False
+    elif len(last_name) > 15:
+        results_text.delete(1.0, tk.END)
+        results_text.insert(tk.END, "Last Name must be 15 characters or less.")
+        return False
+    
+    # Elif statements to check for empty number or number's that are't exactly 10 characters
+    elif not number:
+        results_text.delete(1.0, tk.END)
+        results_text.insert(tk.END, "Number field can't be empty.")
+        return False
+    elif len(number) != 10:
+        results_text.delete(1.0, tk.END)
+        results_text.insert(tk.END, "Number must be exactly 10 characters.")
+        return False
+    
+    # Elif statements to check for empty address or addresses that are longer than 30 characters
+    elif not address:
+        results_text.delete(1.0, tk.END)
+        results_text.insert(tk.END, "Address field can't be empty.")
+        return False
+    elif len(address) > 30:
+        results_text.delete(1.0, tk.END)
+        results_text.insert(tk.END, "Address must be 30 characters or less.")
+        return False
+    else:
+        return True   # Returns True if all pass
+```
+I really enjoyed coding this artifact mainly because the orginal code base was written early in my computer science career so I had alot of fun really demonstrating how far I have came since the beginning. It was a wonderful experience getting to take something that was useless on its own to a fully functioning application, this was the first time I have ever had the oppurtunity to do something like this on my own. I learned so many things throughout the course of this final enhancement. I learned how to incorporate a database into a python code base through the use of the Pymongo libray. I also learned how to retrieve info from a database and edit it all while maintaning proper input validation. I think one of the hardest parts for me was figuring out how to take the data from the GUI, pass it through validation and then save it into the database. It took me a while to really figure out the logic behind that process but I was able to do it by utilyzing online resources and going back over past course materials from previous classes here at SNHU
+
+The code for the final enhancement can be found below:
 [Enhancement Three: Added Database Functionality](https://github.com/JMckinney13/JMckinney13.github.io/blob/main/ContactManager.py)
