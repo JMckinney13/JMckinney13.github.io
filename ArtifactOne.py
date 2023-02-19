@@ -1,15 +1,11 @@
-    #This code is a ported version of Java code I wrote for the Software Testing and Automation class here at SNHU. I have decided to port the entire code base from Java to Python to display my skills in 
-    #software design/engineering. The code was designed to allow someone to be able to create new contacts and add them to a list of contacts. I also added in the ability to search, edit all fields, and 
-    #delete contacts. I feel like this port will really highlight my skills in software design/engineering because it shows I have a great understanding of how the code works and how each language may share 
-    #some similatities or how in some areas they may be very different. I think this port will also highlight my ability to plan and create functioning code that not only meets the requirements but also does
-    #so in a way that is very secure. I tried to think of ways where the code may be unsecure and tried addressing them as best I could with inpout validation and error raising when needed. I also developed 
-    #a fairly extensive set of test cases to try to best capture the functionality of the code and to see how it hadles inputs that are outside of those laid out in my validation. This is just the beginning
-    #of my journey with this code and I really look forward to taking it to a fully functioning application with an appealing UI and database support to create long term storage for the contacts users create. 
-
-
+    # This code is a ported version of Java code I wrote for the Software Testing and Automation class here at SNHU. I decided to port the entire code base from Java to Python 
+    # to display my skills in software design/engineering. The code was designed to allow someone to be able to create new contacts and add them to a list of contacts.
+    # I also added in the ability to search, edit all fields, and delete contacts.
+    
+    
 class Contact: 
     
-    #The constructur is set up with callbacks to the setters for each variable to edit input validation
+    #The constructur is set up with callbacks to the setters to aid in input validation for each individual variable
     def __init__(self, ID, firstname, lastname, number, address):
         self.set_ID(ID)
         self.set_firstname(firstname)
@@ -24,69 +20,83 @@ class Contact:
 
     
 
-    #Each setter below first checks for valid input before setting. If input is invalid it raises an exceptin to prevent erroneous data making it to the Contact or database
+    # Setter for ID
     def set_ID(self, ID):
-
+        
+        # Raises an error if ID is empty
         if ID == "":
             raise ValueError("ID can't be empty")
-
+        #Raises an error if ID is greater than 10 characters
         if len(ID) > 10:
             raise ValueError("ID must be 10 characters or less")
 
         self.ID = ID
-
+        
+    # Getter for ID
     def get_ID(self):
         return self.ID
-
+    
+    # Setter for firstname
     def set_firstname(self, firstname):
 
+        # Raises an error if firstname is empty
         if firstname == "":
             raise ValueError("First Name can't be empty")
-
+        # Raises an error if firstname is greater than 10 characters
         if len(firstname) > 10:
             raise ValueError("First Name must be 10 characters or less")
 
         self.firstname = firstname
 
+    # Getter for firstname
     def get_firstname(self):
         return self.firstname
-
+    
+    # Setter for lastname
     def set_lastname(self, lastname):
 
+        # Raises error if lastname is empty
         if lastname == "":
             raise ValueError("Last Name can't be empty")
-
+        # Raises error if lastname is greater than 15 characters
         if len(lastname) > 15:
             raise ValueError("Last Name must be 15 characters or less")
 
         self.lastname = lastname
 
+    # Getter for lastname
     def get_lastname(self):
         return self.lastname
-
+    
+    # Setter for lastname
     def set_number(self, number):
           
+        # Raises error if number is empty
         if number == "":
             raise ValueError("Number can't be empty")
-
+        # Raises error if number isn't exactly 10 characters
         if len(number) != 10:
             raise ValueError("Number must be exactly 10 characters")
 
         self.number = number
 
+    # Getter for number
     def get_number(self):
         return self.number
 
+    # Setter for address
     def set_address(self, address):
 
+        # Raises error if address is empty
         if address == "":
             raise ValueError("Address can't be empty")
-
+        # Raises error if address is greater than 30 characters
         if len(address) > 30:
             raise ValueError("Address must be 30 characters or less")
 
         self.address = address
 
+    # Getter for address
     def get_address(self):
         return self.address
 
@@ -94,35 +104,38 @@ class Contact:
 #Search for Contact using contact ID
 def find_contact(Contacts, searchID):
 
-    #Checks for empty list, if not empty then it loops through contacts searching for a matching ID and returns said match if found
+    # Checks for empty list first
     if len(Contacts) > 0:
-        i = 0
+        i = 0 # Starts iteration at index 0
+        # Loops until the end of the list
         while i < len(Contacts):
-            if Contacts[i].get_ID() == searchID:
-                c = Contacts[i]
-                return c
+            if Contacts[i].get_ID() == searchID: # Checks for matching contact
+                searchContact = Contacts[i] # Sets searchContact to the value of the contact at the matching index
+                return searchContact
             i = i + 1
         print("Contact not found")
     else:
         print("Contact list is empty")
 
-#The following four methods allow for variable editing by first searching for contacts using ID and then setting the new values
-#1
+# Finds contact using find_contact then updates contacts firstname
 def edit_firstname(Contacts, searchID, newfirstname):
-    editContact = find_contact(Contacts, searchID)
-    editContact.set_firstname(newfirstname)
-#2
+    editContact = find_contact(Contacts, searchID) # Search for contact
+    editContact.set_firstname(newfirstname) # Set new firstname
+    
+# Finds contact using find_contact then updates contacts lastname
 def edit_lastname(Contacts, searchID, newlastname):
-    editContact = find_contact(Contacts, searchID)
-    editContact.set_lastname(newlastname)
-#3
+    editContact = find_contact(Contacts, searchID) # Search for contact
+    editContact.set_lastname(newlastname) # Set new lastname
+    
+# Finds contact using find_contact then updates contacts number
 def edit_number(Contacts, searchID, newNumber):
-    editContact = find_contact(Contacts, searchID)
-    editContact.set_number(newNumber)
-#4
+    editContact = find_contact(Contacts, searchID) # Search for contact
+    editContact.set_number(newNumber) # Set new number
+    
+# Finds contact using find_contact then updates contacts address
 def edit_address(Contacts, searchID, newAddress):
-    editContact = find_contact(Contacts, searchID)
-    editContact.set_address(newAddress)
+    editContact = find_contact(Contacts, searchID) # Search for contact
+    editContact.set_address(newAddress) # Set new address
 
 #Creates and adds a new contact to the list
 def add_contact(Contacts, ID, firstname, lastname, number, address):
