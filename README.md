@@ -45,8 +45,9 @@ The first enhancement was accomplished to showcase my abilities in software desi
         if len(firstname) > 10:
             raise ValueError("First Name must be 10 characters or less")
 
-        self.firstname = firstname
+        self.firstname = firstname 
 ``
+
 I also added a more verbose set of test cases for the code to ensure each edge case was tested and that the test cases provided a more thorough coverage of the code base. Adding in the test cases was the most challenging part for me, I have a decent amount of experience with test cases but the challenge was thinking of which areas needed to be tested and how I would test them. I really enjoyed getting the opurtunity to improve on code I had previously written and learned some new things along the way. One thing I learned was how to use and implement dunder methods, I had never really had the oppurtunity to use them in the past but decided to use one here to format up the default print() function to better display the contact data. 
 
 The code for enhancement one can be found below:
