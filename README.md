@@ -34,7 +34,7 @@ The test cases for the code can be found at the following links: [Contact Servic
 
 # **Enhancement One Code:**
 The first enhancement was accomplished to showcase my abilities in software design and engineering. I decided to showcase these abilities by porting the original code from Java to Python, and along the way I added a few enhancements to make the code more secure. I believe this artifact does an excellent job of showcasing my skills in software development because it highlights my ability to not only port from another language but to also increase security in the process. The first hurdle of this enhancemnt was the port, I consider myself very skilled in Python so this part was pretty easy and I had alot of fun doing it. Once the port was completed I started to improve on the code to provide a much more refined product in comparison to the original. I noticed during my code review that the original lacked input validation so I worked towards correcting that problem. I addressed input validation through the use of if statements in the setters for each variable. The addition of input validation meets course outcome 5 because I found and eradicated a security vulnerability as well as ensured all data was explicitly validated. Below is a snippet demonstrating this validation:
-``Python
+```Python
   
     def set_firstname(self, firstname):
 
@@ -46,7 +46,7 @@ The first enhancement was accomplished to showcase my abilities in software desi
             raise ValueError("First Name must be 10 characters or less")
 
         self.firstname = firstname 
-``
+```
 
 I also added a more verbose set of test cases for the code to ensure each edge case was tested and that the test cases provided a more thorough coverage of the code base. Adding in the test cases was the most challenging part for me, I have a decent amount of experience with test cases but the challenge was thinking of which areas needed to be tested and how I would test them. I really enjoyed getting the opurtunity to improve on code I had previously written and learned some new things along the way. One thing I learned was how to use and implement dunder methods, I had never really had the oppurtunity to use them in the past but decided to use one here to format up the default print() function to better display the contact data. 
 
